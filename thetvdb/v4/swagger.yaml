@@ -1,0 +1,3142 @@
+openapi: 3.0.0
+info:
+  title: TVDB API V4
+  description: Documentation of the TVDB API V4
+  version: 4.3.17
+servers:
+- url: https://api4.thetvdb.com/v4
+security:
+- bearerAuth: []
+paths:
+  /artwork/statuses:
+    get:
+      tags:
+      - artwork-statuses
+      description: returns list of artwork status records
+      operationId: getAllArtworkStatuses
+      responses:
+        "200":
+          description: response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200'
+  /artwork/types:
+    get:
+      tags:
+      - artwork-types
+      description: returns list of artworkType records
+      operationId: getAllArtworkTypes
+      responses:
+        "200":
+          description: response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_1'
+  /artwork/{id}:
+    get:
+      tags:
+      - artwork
+      description: Returns artwork base record
+      operationId: getArtworkBase
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: number
+      responses:
+        "200":
+          description: response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_2'
+  /artwork/{id}/extended:
+    get:
+      tags:
+      - artwork
+      description: Returns artwork extended record
+      operationId: getArtworkExtended
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: number
+      responses:
+        "200":
+          description: response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_3'
+  /artwork/{id}/translations/{language}:
+    get:
+      tags:
+      - artwork
+      description: Returns artwork translation record
+      operationId: getArtworkTranslation
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: number
+      - name: language
+        in: path
+        description: language
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_4'
+  /awards/categories/{id}:
+    get:
+      tags:
+      - award-categories
+      description: Returns a award category base record
+      operationId: getAwardCategory
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: number
+      responses:
+        "200":
+          description: response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_5'
+  /awards/categories/{id}/extended:
+    get:
+      tags:
+      - award-categories
+      description: Returns a award category extended record
+      operationId: getAwardCategoryExtended
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: number
+      responses:
+        "200":
+          description: response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_6'
+  /awards:
+    get:
+      tags:
+      - awards
+      description: returns list of award base records
+      operationId: getAllAwards
+      responses:
+        "200":
+          description: response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_7'
+  /awards/{id}:
+    get:
+      tags:
+      - awards
+      description: returns an award base record
+      operationId: getAward
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: number
+      responses:
+        "200":
+          description: response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_8'
+  /awards/{id}/extended:
+    get:
+      tags:
+      - awards
+      description: returns an award extended record
+      operationId: getAwardExtended
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: number
+      responses:
+        "200":
+          description: response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_9'
+  /characters/{id}:
+    get:
+      tags:
+      - characters
+      description: Returns character base record
+      operationId: getCharacterBase
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: number
+      responses:
+        "200":
+          description: response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_10'
+  /companies:
+    get:
+      tags:
+      - companies
+      description: returns a paginated list of company records
+      operationId: getAllCompanies
+      parameters:
+      - name: page
+        in: query
+        description: name
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: number
+      responses:
+        "200":
+          description: response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_11'
+  /companies/types:
+    get:
+      tags:
+      - companies
+      description: returns all company type records
+      operationId: getCompanyTypes
+      responses:
+        "200":
+          description: response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_12'
+  /companies/{id}:
+    get:
+      tags:
+      - companies
+      description: returns a company record
+      operationId: getCompany
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: number
+      responses:
+        "200":
+          description: response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_13'
+  /content/ratings:
+    get:
+      tags:
+      - content-ratings
+      description: returns list content rating records
+      operationId: getAllContentRatings
+      responses:
+        "200":
+          description: response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_14'
+  /countries:
+    get:
+      tags:
+      - countries
+      description: returns list of country records
+      operationId: getAllCountries
+      responses:
+        "200":
+          description: response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_15'
+  /entities/types:
+    get:
+      tags:
+      - entity-types
+      description: returns the active entity types
+      operationId: getEntityTypes
+      responses:
+        "200":
+          description: response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_16'
+  /episodes/{id}:
+    get:
+      tags:
+      - episodes
+      description: Returns episode base record
+      operationId: getEpisodeBase
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: number
+      responses:
+        "200":
+          description: response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_17'
+  /episodes/{id}/extended:
+    get:
+      tags:
+      - episodes
+      description: Returns episode extended record
+      operationId: getEpisodeExtended
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: number
+      - name: meta
+        in: query
+        description: meta
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: translations
+          enum:
+          - translations
+      responses:
+        "200":
+          description: response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_18'
+  /episodes/{id}/translations/{language}:
+    get:
+      tags:
+      - episodes
+      description: Returns episode translation record
+      operationId: getEpisodeTranslation
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: number
+      - name: language
+        in: path
+        description: language
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_4'
+  /lists/{id}/translations/{language}:
+    get:
+      tags:
+      - lists
+      description: Returns list translation record
+      operationId: getListTranslation
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: number
+      - name: language
+        in: path
+        description: language
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_4'
+  /genders:
+    get:
+      tags:
+      - genders
+      description: returns list of gender records
+      operationId: getAllGenders
+      responses:
+        "200":
+          description: response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_19'
+  /genres:
+    get:
+      tags:
+      - genres
+      description: returns list of genre records
+      operationId: getAllGenres
+      responses:
+        "200":
+          description: response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_20'
+  /genres/{id}:
+    get:
+      tags:
+      - genres
+      description: Returns genre record
+      operationId: getGenreBase
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: number
+      responses:
+        "200":
+          description: response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_21'
+  /languages:
+    get:
+      tags:
+      - languages
+      description: returns list of language records
+      operationId: getAllLanguages
+      responses:
+        "200":
+          description: response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_22'
+  /lists:
+    get:
+      tags:
+      - lists
+      description: returns list of list base records
+      operationId: getAllLists
+      parameters:
+      - name: page
+        in: query
+        description: page number
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: number
+      responses:
+        "200":
+          description: response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_23'
+  /lists/{id}:
+    get:
+      tags:
+      - lists
+      description: returns an list base record
+      operationId: getList
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: number
+      responses:
+        "200":
+          description: response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_24'
+  /lists/{id}/extended:
+    get:
+      tags:
+      - lists
+      description: returns a list extended record
+      operationId: getListExtended
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: number
+      responses:
+        "200":
+          description: response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_25'
+  /login:
+    post:
+      tags:
+      - login
+      summary: create an auth token
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/login_body'
+        required: true
+      responses:
+        "200":
+          description: response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_26'
+  /movies/statuses:
+    get:
+      tags:
+      - movie-statuses
+      description: returns list of status records
+      operationId: getAllMovieStatuses
+      responses:
+        "200":
+          description: response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_27'
+  /movies:
+    get:
+      tags:
+      - movies
+      description: returns list of movie base records
+      operationId: getAllMovie
+      parameters:
+      - name: page
+        in: query
+        description: page number
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: number
+      responses:
+        "200":
+          description: response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_28'
+  /movies/{id}:
+    get:
+      tags:
+      - movies
+      description: Returns movie base record
+      operationId: getMovieBase
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: number
+      responses:
+        "200":
+          description: response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_29'
+  /movies/{id}/extended:
+    get:
+      tags:
+      - movies
+      description: Returns movie extended record
+      operationId: getMovieExtended
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: number
+      - name: meta
+        in: query
+        description: meta
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: translations
+          enum:
+          - translations
+      responses:
+        "200":
+          description: response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_30'
+  /movies/{id}/translations/{language}:
+    get:
+      tags:
+      - movies
+      description: Returns movie translation record
+      operationId: getMovieTranslation
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: number
+      - name: language
+        in: path
+        description: language
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_4'
+  /people/types:
+    get:
+      tags:
+      - people-types
+      description: returns list of peopleType records
+      operationId: getAllPeopleTypes
+      responses:
+        "200":
+          description: response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_31'
+  /people/{id}:
+    get:
+      tags:
+      - people
+      description: Returns people base record
+      operationId: getPeopleBase
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: number
+      responses:
+        "200":
+          description: response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_32'
+  /people/{id}/extended:
+    get:
+      tags:
+      - people
+      description: Returns people extended record
+      operationId: getPeopleExtended
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: number
+      - name: meta
+        in: query
+        description: meta
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: translations
+          enum:
+          - translations
+      responses:
+        "200":
+          description: response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_33'
+  /people/{id}/translations/{language}:
+    get:
+      tags:
+      - people
+      description: Returns people translation record
+      operationId: getPeopleTranslation
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: number
+      - name: language
+        in: path
+        description: language
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_4'
+  /search:
+    get:
+      tags:
+      - search
+      description: Returns a search result record
+      operationId: getSearchResults
+      parameters:
+      - name: q
+        in: query
+        description: additional search query param
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: query
+        in: query
+        description: additional search query param
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: type
+        in: query
+        description: restrict results to entity type movie|series|person|company
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: year
+        in: query
+        description: restrict results to a year for movie|series
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: number
+      - name: offset
+        in: query
+        description: offset results
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: number
+      - name: limit
+        in: query
+        description: limit results
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: number
+      responses:
+        "200":
+          description: response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_34'
+  /seasons:
+    get:
+      tags:
+      - seasons
+      description: returns list of seasons base records
+      operationId: getAllSeasons
+      parameters:
+      - name: page
+        in: query
+        description: page number
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: number
+      responses:
+        "200":
+          description: response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_35'
+  /seasons/{id}:
+    get:
+      tags:
+      - seasons
+      description: Returns season base record
+      operationId: getSeasonBase
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: number
+      responses:
+        "200":
+          description: response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_36'
+  /seasons/{id}/extended:
+    get:
+      tags:
+      - seasons
+      description: Returns season extended record
+      operationId: getSeasonExtended
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: number
+      responses:
+        "200":
+          description: response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_37'
+  /seasons/types:
+    get:
+      tags:
+      - seasons
+      description: Returns season type records
+      operationId: getSeasonTypes
+      responses:
+        "200":
+          description: response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_38'
+  /seasons/{id}/translations/{language}:
+    get:
+      tags:
+      - seasons
+      description: Returns season translation record
+      operationId: getSeasonTranslation
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: number
+      - name: language
+        in: path
+        description: language
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_4'
+  /series:
+    get:
+      tags:
+      - series
+      description: returns list of series base records
+      operationId: getAllSeries
+      parameters:
+      - name: page
+        in: query
+        description: page number
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: number
+      responses:
+        "200":
+          description: response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_39'
+  /series/statuses:
+    get:
+      tags:
+      - series-statuses
+      description: returns list of status records
+      operationId: getAllSeriesStatuses
+      responses:
+        "200":
+          description: response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_27'
+  /series/{id}:
+    get:
+      tags:
+      - series
+      description: Returns series base record
+      operationId: getSeriesBase
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: number
+      responses:
+        "200":
+          description: response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_40'
+  /series/{id}/extended:
+    get:
+      tags:
+      - series
+      description: Returns series extended record
+      operationId: getSeriesExtended
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: number
+      - name: meta
+        in: query
+        description: meta
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: translations
+          enum:
+          - translations
+          - episodes
+      responses:
+        "200":
+          description: response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_41'
+  /series/{id}/episodes/{season-type}:
+    get:
+      tags:
+      - series
+      description: "Returns series episodes from the specified season type, default\
+        \ returns the episodes in the series default season type"
+      operationId: getSeriesEpisodes
+      parameters:
+      - name: page
+        in: query
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+          default: 0
+      - name: id
+        in: path
+        description: id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: number
+      - name: season-type
+        in: path
+        description: season-type
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+        examples:
+          default:
+            value: default
+          official:
+            value: official
+          dvd:
+            value: dvd
+          absolute:
+            value: absolute
+          alternate:
+            value: alternate
+          regional:
+            value: regional
+      responses:
+        "200":
+          description: response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_42'
+  /series/{id}/translations/{language}:
+    get:
+      tags:
+      - series
+      description: Returns series translation record
+      operationId: getSeriesTranslation
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: number
+      - name: language
+        in: path
+        description: language
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_4'
+  /sources/types:
+    get:
+      tags:
+      - source-types
+      description: returns list of sourceType records
+      operationId: getAllSourceTypes
+      responses:
+        "200":
+          description: response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_43'
+  /updates:
+    get:
+      tags:
+      - updates
+      description: returns updated entities
+      operationId: updates
+      parameters:
+      - name: since
+        in: query
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: number
+      - name: type
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: movies
+          enum:
+          - artwork
+          - award_nominees
+          - companies
+          - episodes
+          - lists
+          - people
+          - seasons
+          - series
+          - seriespeople
+          - artworktypes
+          - award_categories
+          - awards
+          - company_types
+          - content_ratings
+          - countries
+          - entity_types
+          - genres
+          - languages
+          - movies
+          - movie_genres
+          - movie_status
+          - peopletypes
+          - seasontypes
+          - sourcetypes
+          - tag_options
+          - tags
+          - translatedcharacters
+          - translatedcompanies
+          - translatedepisodes
+          - translatedlists
+          - translatedmovies
+          - translatedpeople
+          - translatedseasons
+          - translatedserierk
+      - name: action
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: movies
+          enum:
+          - create
+          - delete
+          - update
+      responses:
+        "200":
+          description: response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_44'
+components:
+  schemas:
+    Alias:
+      type: object
+      properties:
+        language:
+          type: string
+          x-go-name: Language
+        name:
+          type: string
+          x-go-name: Name
+      description: An alias model
+    ArtworkBaseRecord:
+      type: object
+      properties:
+        id:
+          type: integer
+        image:
+          type: string
+          x-go-name: Image
+        language:
+          type: string
+        score:
+          type: number
+        thumbnail:
+          type: string
+          x-go-name: Thumbnail
+        type:
+          type: integer
+          format: int64
+          x-go-name: Type
+      description: base artwork record
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    ArtworkExtendedRecord:
+      type: object
+      properties:
+        episodeId:
+          type: integer
+        height:
+          type: integer
+          format: int64
+          x-go-name: Height
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        image:
+          type: string
+          x-go-name: Image
+        language:
+          type: string
+        movieId:
+          type: integer
+        networkId:
+          type: integer
+        peopleId:
+          type: integer
+        score:
+          type: number
+        seasonId:
+          type: integer
+        seriesId:
+          type: integer
+        seriesPeopleId:
+          type: integer
+        thumbnail:
+          type: string
+          x-go-name: Thumbnail
+        thumbnailHeight:
+          type: integer
+          format: int64
+          x-go-name: ThumbnailHeight
+        thumbnailWidth:
+          type: integer
+          format: int64
+          x-go-name: ThumbnailWidth
+        type:
+          type: integer
+          format: int64
+          x-go-name: Type
+        updatedAt:
+          type: integer
+          format: int64
+          x-go-name: UpdatedAt
+        width:
+          type: integer
+          format: int64
+          x-go-name: Width
+      description: extended artwork record
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    ArtworkStatus:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        name:
+          type: string
+      description: artwork status record
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    ArtworkType:
+      type: object
+      properties:
+        height:
+          type: integer
+          format: int64
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        imageFormat:
+          type: string
+          x-go-name: ImageFormat
+        name:
+          type: string
+          x-go-name: Name
+        recordType:
+          type: string
+          x-go-name: RecordType
+        slug:
+          type: string
+          x-go-name: Slug
+        thumbHeight:
+          type: integer
+          format: int64
+          x-go-name: ThumbHeight
+        thumbWidth:
+          type: integer
+          format: int64
+          x-go-name: ThumbWidth
+        width:
+          type: integer
+          format: int64
+          x-go-name: Width
+      description: artwork type record
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    AwardBaseRecord:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+      description: base award record
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    AwardCategoryBaseRecord:
+      type: object
+      properties:
+        allowCoNominees:
+          type: boolean
+          x-go-name: AllowCoNominees
+        award:
+          $ref: '#/components/schemas/AwardBaseRecord'
+        forMovies:
+          type: boolean
+          x-go-name: ForMovies
+        forSeries:
+          type: boolean
+          x-go-name: ForSeries
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        name:
+          type: string
+      description: base award category record
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    AwardCategoryExtendedRecord:
+      type: object
+      properties:
+        allowCoNominees:
+          type: boolean
+          x-go-name: AllowCoNominees
+        award:
+          $ref: '#/components/schemas/AwardBaseRecord'
+        forMovies:
+          type: boolean
+          x-go-name: ForMovies
+        forSeries:
+          type: boolean
+          x-go-name: ForSeries
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        name:
+          type: string
+        nominees:
+          type: array
+          items:
+            $ref: '#/components/schemas/AwardNomineeBaseRecord'
+          x-go-name: Nominees
+      description: extended award category record
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    AwardExtendedRecord:
+      type: object
+      properties:
+        categories:
+          type: array
+          items:
+            $ref: '#/components/schemas/AwardCategoryBaseRecord'
+          x-go-name: Categories
+        id:
+          type: integer
+        name:
+          type: string
+        score:
+          type: integer
+          format: int64
+          x-go-name: Score
+      description: extended award record
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    AwardNomineeBaseRecord:
+      type: object
+      properties:
+        character:
+          $ref: '#/components/schemas/Character'
+        details:
+          type: string
+        episode:
+          $ref: '#/components/schemas/EpisodeBaseRecord'
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        isWinner:
+          type: boolean
+          x-go-name: IsWinner
+        movie:
+          $ref: '#/components/schemas/MovieBaseRecord'
+        series:
+          $ref: '#/components/schemas/SeriesBaseRecord'
+        year:
+          type: string
+        category:
+          type: string
+        name:
+          type: string
+      description: base award nominee record
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    Biography:
+      type: object
+      properties:
+        biography:
+          type: string
+          x-go-name: Biography
+        language:
+          type: string
+          x-go-name: Language
+      description: biography record
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    Character:
+      type: object
+      properties:
+        aliases:
+          type: array
+          items:
+            $ref: '#/components/schemas/Alias'
+          x-go-name: Aliases
+        episodeId:
+          type: integer
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        image:
+          type: string
+        isFeatured:
+          type: boolean
+          x-go-name: IsFeatured
+        movieId:
+          type: integer
+        name:
+          type: string
+        nameTranslations:
+          type: array
+          items:
+            type: string
+          x-go-name: NameTranslations
+        overviewTranslations:
+          type: array
+          items:
+            type: string
+          x-go-name: OverviewTranslations
+        peopleId:
+          type: integer
+        seriesId:
+          type: integer
+        sort:
+          type: integer
+          format: int64
+          x-go-name: Sort
+        type:
+          type: integer
+          format: int64
+          x-go-name: Type
+        url:
+          type: string
+          x-go-name: URL
+        personName:
+          type: string
+      description: character record
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    Company:
+      type: object
+      properties:
+        activeDate:
+          type: string
+        aliases:
+          type: array
+          items:
+            $ref: '#/components/schemas/Alias'
+          x-go-name: Aliases
+        country:
+          type: string
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        inactiveDate:
+          type: string
+        name:
+          type: string
+        nameTranslations:
+          type: array
+          items:
+            type: string
+          x-go-name: NameTranslations
+        overviewTranslations:
+          type: array
+          items:
+            type: string
+          x-go-name: OverviewTranslations
+        primaryCompanyType:
+          type: integer
+          format: int64
+          x-go-name: PrimaryCompanyType
+        slug:
+          type: string
+          x-go-name: Slug
+      description: A company record
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    CompanyType:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+      description: A company type record
+    ContentRating:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        name:
+          type: string
+          x-go-name: Name
+        country:
+          type: string
+        contentType:
+          type: string
+        order:
+          type: integer
+        fullName:
+          type: string
+      description: content rating record
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    Country:
+      type: object
+      properties:
+        id:
+          type: string
+          x-go-name: ID
+        name:
+          type: string
+          x-go-name: Name
+        shortCode:
+          type: string
+          x-go-name: ShortCode
+      description: country record
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    Entity:
+      type: object
+      properties:
+        movieId:
+          type: integer
+        order:
+          type: integer
+          format: int64
+          x-go-name: Order
+        seriesId:
+          type: integer
+      description: Entity record
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    EntityType:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+          x-go-name: Order
+        seriesId:
+          type: integer
+      description: Entity Type record
+    EntityUpdate:
+      type: object
+      properties:
+        entityType:
+          type: string
+          x-go-name: EnitityType
+        method:
+          type: string
+          x-go-name: Method
+        recordId:
+          type: integer
+          format: int64
+          x-go-name: RecordID
+        timeStamp:
+          type: integer
+          format: int64
+          x-go-name: TimeStamp
+      description: entity update record
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    EpisodeBaseRecord:
+      type: object
+      properties:
+        aired:
+          type: string
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        image:
+          type: string
+        imageType:
+          type: integer
+        isMovie:
+          type: integer
+          format: int64
+          x-go-name: IsMovie
+        name:
+          type: string
+        nameTranslations:
+          type: array
+          items:
+            type: string
+          x-go-name: NameTranslations
+        number:
+          type: integer
+        overviewTranslations:
+          type: array
+          items:
+            type: string
+          x-go-name: OverviewTranslations
+        runtime:
+          type: integer
+        seasonNumber:
+          type: integer
+        seasons:
+          type: array
+          items:
+            $ref: '#/components/schemas/SeasonBaseRecord'
+          x-go-name: Seasons
+        seriesId:
+          type: integer
+          format: int64
+          x-go-name: SeriesID
+      description: base episode record
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    EpisodeExtendedRecord:
+      type: object
+      properties:
+        aired:
+          type: string
+        airsAfterSeason:
+          type: integer
+        airsBeforeEpisode:
+          type: integer
+        airsBeforeSeason:
+          type: integer
+        awards:
+          type: array
+          items:
+            $ref: '#/components/schemas/AwardBaseRecord'
+          x-go-name: Awards
+        characters:
+          type: array
+          items:
+            $ref: '#/components/schemas/Character'
+          x-go-name: Characters
+        contentRatings:
+          type: array
+          items:
+            $ref: '#/components/schemas/ContentRating'
+          x-go-name: ContentRatings
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        image:
+          type: string
+        imageType:
+          type: integer
+        isMovie:
+          type: integer
+          format: int64
+          x-go-name: IsMovie
+        name:
+          type: string
+        nameTranslations:
+          type: array
+          items:
+            type: string
+          x-go-name: NameTranslations
+        network:
+          $ref: '#/components/schemas/NetworkBaseRecord'
+        number:
+          type: integer
+        overviewTranslations:
+          type: array
+          items:
+            type: string
+          x-go-name: OverviewTranslations
+        productionCode:
+          type: string
+        remoteIds:
+          type: array
+          items:
+            $ref: '#/components/schemas/RemoteID'
+          x-go-name: RemoteIDs
+        runtime:
+          type: integer
+        seasonNumber:
+          type: integer
+        seasons:
+          type: array
+          items:
+            $ref: '#/components/schemas/SeasonBaseRecord'
+          x-go-name: Seasons
+        seriesId:
+          type: integer
+          format: int64
+          x-go-name: SeriesID
+        tagOptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/TagOption'
+          x-go-name: TagOptions
+        trailers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Trailer'
+          x-go-name: Trailers
+      description: extended episode record
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    Gender:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        name:
+          type: string
+          x-go-name: Name
+      description: gender record
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    GenreBaseRecord:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        name:
+          type: string
+          x-go-name: Name
+        slug:
+          type: string
+          x-go-name: Slug
+      description: base genre record
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    Language:
+      type: object
+      properties:
+        id:
+          type: string
+          x-go-name: ID
+        name:
+          type: string
+          x-go-name: Name
+        nativeName:
+          type: string
+          x-go-name: NativeName
+        shortCode:
+          type: string
+      description: language record
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    ListBaseRecord:
+      type: object
+      properties:
+        aliases:
+          type: array
+          items:
+            $ref: '#/components/schemas/Alias'
+          x-go-name: Aliases
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        isOfficial:
+          type: boolean
+          x-go-name: IsOfficial
+        name:
+          type: string
+        nameTranslations:
+          type: array
+          items:
+            type: string
+          x-go-name: NameTranslations
+        overview:
+          type: string
+        overviewTranslations:
+          type: array
+          items:
+            type: string
+          x-go-name: OverviewTranslations
+        url:
+          type: string
+      description: base list record
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    ListExtendedRecord:
+      type: object
+      properties:
+        aliases:
+          type: array
+          items:
+            $ref: '#/components/schemas/Alias'
+          x-go-name: Aliases
+        entities:
+          type: array
+          items:
+            $ref: '#/components/schemas/Entity'
+          x-go-name: Entities
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        isOfficial:
+          type: boolean
+          x-go-name: IsOfficial
+        name:
+          type: string
+        nameTranslations:
+          type: array
+          items:
+            type: string
+          x-go-name: NameTranslations
+        overview:
+          type: string
+        overviewTranslations:
+          type: array
+          items:
+            type: string
+          x-go-name: OverviewTranslations
+        score:
+          type: integer
+          format: int64
+          x-go-name: Score
+        url:
+          type: string
+      description: extended list record
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    MovieBaseRecord:
+      type: object
+      properties:
+        aliases:
+          type: array
+          items:
+            $ref: '#/components/schemas/Alias'
+          x-go-name: Aliases
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        image:
+          type: string
+          x-go-name: Image
+        name:
+          type: string
+          x-go-name: Name
+        nameTranslations:
+          type: array
+          items:
+            type: string
+          x-go-name: NameTranslations
+        overviewTranslations:
+          type: array
+          items:
+            type: string
+          x-go-name: OverviewTranslations
+        score:
+          type: number
+          format: double
+          x-go-name: Score
+        slug:
+          type: string
+          x-go-name: Slug
+        status:
+          $ref: '#/components/schemas/Status'
+      description: base movie record
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    MovieExtendedRecord:
+      type: object
+      properties:
+        aliases:
+          type: array
+          items:
+            $ref: '#/components/schemas/Alias'
+          x-go-name: Aliases
+        artworks:
+          type: array
+          items:
+            $ref: '#/components/schemas/ArtworkBaseRecord'
+          x-go-name: Artworks
+        audioLanguages:
+          type: array
+          items:
+            type: string
+          x-go-name: AudioLanguages
+        awards:
+          type: array
+          items:
+            $ref: '#/components/schemas/AwardBaseRecord'
+          x-go-name: Awards
+        boxOffice:
+          type: string
+        budget:
+          type: string
+        characters:
+          type: array
+          items:
+            $ref: '#/components/schemas/Character'
+          x-go-name: Characters
+        lists:
+          type: array
+          items:
+            $ref: '#/components/schemas/ListBaseRecord'
+        genres:
+          type: array
+          items:
+            $ref: '#/components/schemas/GenreBaseRecord'
+          x-go-name: Genres
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        image:
+          type: string
+          x-go-name: Image
+        name:
+          type: string
+          x-go-name: Name
+        nameTranslations:
+          type: array
+          items:
+            type: string
+          x-go-name: NameTranslations
+        originalCountry:
+          type: string
+        originalLanguage:
+          type: string
+        overviewTranslations:
+          type: array
+          items:
+            type: string
+          x-go-name: OverviewTranslations
+        releases:
+          type: array
+          items:
+            $ref: '#/components/schemas/Release'
+          x-go-name: Releases
+        remoteIds:
+          type: array
+          items:
+            $ref: '#/components/schemas/RemoteID'
+          x-go-name: RemoteIDs
+        contentRatings:
+          type: array
+          items:
+            $ref: '#/components/schemas/ContentRating'
+        score:
+          type: number
+          format: double
+          x-go-name: Score
+        slug:
+          type: string
+          x-go-name: Slug
+        status:
+          $ref: '#/components/schemas/Status'
+        studios:
+          type: array
+          items:
+            $ref: '#/components/schemas/StudioBaseRecord'
+          x-go-name: Studios
+        subtitleLanguages:
+          type: array
+          items:
+            type: string
+          x-go-name: SubtitleLanguages
+        tagOptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/TagOption'
+          x-go-name: TagOptions
+        trailers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Trailer'
+          x-go-name: Trailers
+        inspirations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Inspiration'
+          x-go-name: Inspirations
+        productionCountries:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProductionCountry'
+          x-go-name: ProductionCountries
+        spokenLanguages:
+          type: array
+          items:
+            type: string
+          x-go-name: SpokenLanguages
+        firstRelease:
+          $ref: '#/components/schemas/Release'
+        companies:
+          $ref: '#/components/schemas/Companies'
+      description: extended movie record
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    NetworkBaseRecord:
+      type: object
+      properties:
+        abbreviation:
+          type: string
+        country:
+          type: string
+        id:
+          type: integer
+        name:
+          type: string
+        slug:
+          type: string
+      description: base network record
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    PeopleBaseRecord:
+      type: object
+      properties:
+        aliases:
+          type: array
+          items:
+            $ref: '#/components/schemas/Alias'
+          x-go-name: Aliases
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        image:
+          type: string
+        name:
+          type: string
+        score:
+          type: integer
+          format: int64
+          x-go-name: Score
+      description: base people record
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    PeopleExtendedRecord:
+      type: object
+      properties:
+        aliases:
+          type: array
+          items:
+            $ref: '#/components/schemas/Alias'
+          x-go-name: Aliases
+        awards:
+          type: array
+          items:
+            $ref: '#/components/schemas/AwardBaseRecord'
+          x-go-name: Awards
+        biographies:
+          type: array
+          items:
+            $ref: '#/components/schemas/Biography'
+          x-go-name: Biographies
+        birth:
+          type: string
+        birthPlace:
+          type: string
+        characters:
+          type: array
+          items:
+            $ref: '#/components/schemas/Character'
+          x-go-name: Characters
+        death:
+          type: string
+        gender:
+          type: integer
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        image:
+          type: string
+        name:
+          type: string
+        races:
+          type: array
+          items:
+            $ref: '#/components/schemas/Race'
+          x-go-name: Races
+        remoteIds:
+          type: array
+          items:
+            $ref: '#/components/schemas/RemoteID'
+          x-go-name: RemoteIDs
+        score:
+          type: integer
+          format: int64
+          x-go-name: Score
+        tagOptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/TagOption'
+          x-go-name: TagOptions
+      description: extended people record
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    PeopleType:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        name:
+          type: string
+          x-go-name: Name
+      description: people type record
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    Race:
+      type: object
+      description: race record
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    Release:
+      type: object
+      properties:
+        country:
+          type: string
+        date:
+          type: string
+        detail:
+          type: string
+      description: release record
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    RemoteID:
+      type: object
+      properties:
+        id:
+          type: string
+          x-go-name: ID
+        type:
+          type: integer
+          format: int64
+          x-go-name: Type
+      description: remote id record
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    SearchResult:
+      type: object
+      properties:
+        aliases:
+          type: array
+          items:
+            type: string
+        companies:
+          type: array
+          items:
+            type: string
+        companyType:
+          type: string
+        country:
+          type: string
+        director:
+          type: string
+        extendedTitle:
+          type: string
+        genres:
+          type: array
+          items:
+            type: string
+        id:
+          type: string
+        imageUrl:
+          type: string
+        name:
+          type: string
+        nameTranslated:
+          type: string
+        officialList:
+          type: string
+        overview:
+          type: string
+        overview_translated:
+          type: array
+          items:
+            type: string
+        posters:
+          type: array
+          items:
+            type: string
+        primaryLanguage:
+          type: string
+        primaryType:
+          type: string
+        status:
+          type: string
+          x-go-name: Status
+        translationsWithLang:
+          type: array
+          items:
+            type: string
+        tvdb_id:
+          type: string
+        type:
+          type: string
+        year:
+          type: string
+      description: search result
+    SeasonBaseRecord:
+      type: object
+      properties:
+        abbreviation:
+          type: string
+        country:
+          type: string
+        id:
+          type: integer
+        image:
+          type: string
+        imageType:
+          type: integer
+        name:
+          type: string
+        nameTranslations:
+          type: array
+          items:
+            type: string
+          x-go-name: NameTranslations
+        number:
+          type: integer
+          format: int64
+          x-go-name: Number
+        overviewTranslations:
+          type: array
+          items:
+            type: string
+          x-go-name: OverviewTranslations
+        seriesId:
+          type: integer
+          format: int64
+          x-go-name: SeriesID
+        slug:
+          type: string
+        type:
+          $ref: '#/components/schemas/SeasonType'
+      description: season genre record
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    SeasonExtendedRecord:
+      type: object
+      properties:
+        abbreviation:
+          type: string
+        artwork:
+          type: array
+          items:
+            $ref: '#/components/schemas/ArtworkBaseRecord'
+          x-go-name: Artwork
+        episodes:
+          type: array
+          items:
+            $ref: '#/components/schemas/EpisodeBaseRecord'
+          x-go-name: Episodes
+        id:
+          type: integer
+        image:
+          type: string
+        imageType:
+          type: integer
+        name:
+          type: string
+        nameTranslations:
+          type: array
+          items:
+            type: string
+          x-go-name: NameTranslations
+        number:
+          type: integer
+          format: int64
+          x-go-name: Number
+        overviewTranslations:
+          type: array
+          items:
+            type: string
+          x-go-name: OverviewTranslations
+        seriesId:
+          type: integer
+          format: int64
+          x-go-name: SeriesID
+        slug:
+          type: string
+        trailers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Trailer'
+          x-go-name: Trailers
+        type:
+          type: integer
+          format: int64
+          x-go-name: Type
+        companies:
+          $ref: '#/components/schemas/Companies'
+        tagOptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/TagOption'
+          x-go-name: TagOptions
+      description: extended season record
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    SeasonType:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        name:
+          type: string
+          x-go-name: Name
+        type:
+          type: integer
+          format: int64
+          x-go-name: Type
+      description: season type record
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    SeriesAirsDays:
+      type: object
+      properties:
+        friday:
+          type: boolean
+          x-go-name: Friday
+        monday:
+          type: boolean
+          x-go-name: Monday
+        saturday:
+          type: boolean
+          x-go-name: Saturday
+        sunday:
+          type: boolean
+          x-go-name: Sunday
+        thursday:
+          type: boolean
+          x-go-name: Thursday
+        tuesday:
+          type: boolean
+          x-go-name: Tuesday
+        wednesday:
+          type: boolean
+          x-go-name: Wednesday
+      description: A series airs day record
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    SeriesBaseRecord:
+      type: object
+      properties:
+        abbreviation:
+          type: string
+        aliases:
+          type: array
+          items:
+            $ref: '#/components/schemas/Alias'
+          x-go-name: Aliases
+        country:
+          type: string
+        defaultSeasonType:
+          type: integer
+          format: int64
+          x-go-name: DefaultSeasonType
+        firstAired:
+          type: string
+        id:
+          type: integer
+        image:
+          type: string
+        isOrderRandomized:
+          type: boolean
+          x-go-name: IsOrderRandomized
+        lastAired:
+          type: string
+        name:
+          type: string
+        nameTranslations:
+          type: array
+          items:
+            type: string
+          x-go-name: NameTranslations
+        nextAired:
+          type: string
+          x-go-name: NextAired
+        originalCountry:
+          type: string
+        originalLanguage:
+          type: string
+        overviewTranslations:
+          type: array
+          items:
+            type: string
+          x-go-name: OverviewTranslations
+        score:
+          type: number
+          format: double
+          x-go-name: Score
+        slug:
+          type: string
+        status:
+          $ref: '#/components/schemas/Status'
+      description: The base record for a series
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    SeriesExtendedRecord:
+      type: object
+      properties:
+        abbreviation:
+          type: string
+        airsDays:
+          $ref: '#/components/schemas/SeriesAirsDays'
+        airsTime:
+          type: string
+        aliases:
+          type: array
+          items:
+            $ref: '#/components/schemas/Alias'
+          x-go-name: Aliases
+        artworks:
+          type: array
+          items:
+            $ref: '#/components/schemas/ArtworkBaseRecord'
+          x-go-name: Artworks
+        characters:
+          type: array
+          items:
+            $ref: '#/components/schemas/Character'
+          x-go-name: Characters
+        country:
+          type: string
+        defaultSeasonType:
+          type: integer
+          format: int64
+          x-go-name: DefaultSeasonType
+        firstAired:
+          type: string
+        lists:
+          type: array
+          items:
+            $ref: '#/components/schemas/ListBaseRecord'
+        genres:
+          type: array
+          items:
+            $ref: '#/components/schemas/GenreBaseRecord'
+          x-go-name: Genres
+        id:
+          type: integer
+        image:
+          type: string
+        isOrderRandomized:
+          type: boolean
+          x-go-name: IsOrderRandomized
+        lastAired:
+          type: string
+        name:
+          type: string
+        nameTranslations:
+          type: array
+          items:
+            type: string
+          x-go-name: NameTranslations
+        companies:
+          type: array
+          items:
+            $ref: '#/components/schemas/Company'
+        nextAired:
+          type: string
+          x-go-name: NextAired
+        originalCountry:
+          type: string
+        originalLanguage:
+          type: string
+        overviewTranslations:
+          type: array
+          items:
+            type: string
+          x-go-name: OverviewTranslations
+        remoteIds:
+          type: array
+          items:
+            $ref: '#/components/schemas/RemoteID'
+          x-go-name: RemoteIDs
+        score:
+          type: number
+          format: double
+          x-go-name: Score
+        seasons:
+          type: array
+          items:
+            $ref: '#/components/schemas/SeasonBaseRecord'
+          x-go-name: Seasons
+        slug:
+          type: string
+        status:
+          $ref: '#/components/schemas/Status'
+        trailers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Trailer'
+          x-go-name: Trailers
+      description: The extended record for a series
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    SourceType:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        name:
+          type: string
+          x-go-name: Name
+        postfix:
+          type: string
+        prefix:
+          type: string
+        slug:
+          type: string
+          x-go-name: Slug
+        sort:
+          type: integer
+          format: int64
+          x-go-name: Sort
+      description: source type record
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    Status:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        keepUpdated:
+          type: boolean
+          x-go-name: KeepUpdated
+        name:
+          type: string
+          x-go-name: Name
+        recordType:
+          type: string
+          x-go-name: RecordType
+      description: status record
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    StudioBaseRecord:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        name:
+          type: string
+          x-go-name: Name
+        parentStudio:
+          type: integer
+      description: studio record
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    Tag:
+      type: object
+      properties:
+        allowsMultiple:
+          type: boolean
+          x-go-name: AllowsMultiple
+        helpText:
+          type: string
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        name:
+          type: string
+          x-go-name: Name
+        options:
+          type: array
+          items:
+            $ref: '#/components/schemas/TagOption'
+          x-go-name: TagOptions
+      description: tag record
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    TagOption:
+      type: object
+      properties:
+        helpText:
+          type: string
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        name:
+          type: string
+          x-go-name: Name
+        tag:
+          type: integer
+          format: int64
+          x-go-name: Tag
+        tagName:
+          type: string
+          x-go-name: TagName
+      description: tag option record
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    Trailer:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        language:
+          type: string
+        name:
+          type: string
+        url:
+          type: string
+      description: trailer record
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    Translation:
+      type: object
+      properties:
+        aliases:
+          type: array
+          items:
+            type: string
+        isAlias:
+          type: boolean
+        isPrimary:
+          type: boolean
+        language:
+          type: string
+          x-go-name: Language
+        name:
+          type: string
+        overview:
+          type: string
+      description: translation record
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    TagOptionEntity:
+      type: object
+      properties:
+        name:
+          type: string
+        tagName:
+          type: string
+        tagId:
+          type: integer
+      description: a entity with selected tag option
+    Inspiration:
+      properties:
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        type:
+          type: string
+        typeName:
+          type: string
+        url:
+          type: string
+      description: Movie inspiration record
+    ProductionCountry:
+      properties:
+        id:
+          type: integer
+          format: int64
+          x-go-name: ID
+        country:
+          type: string
+        name:
+          type: string
+      description: Production country record
+    Companies:
+      properties:
+        studio:
+          $ref: '#/components/schemas/Company'
+        network:
+          $ref: '#/components/schemas/Company'
+        production:
+          $ref: '#/components/schemas/Company'
+        distributor:
+          $ref: '#/components/schemas/Company'
+        specialEffects:
+          $ref: '#/components/schemas/Company'
+      description: Companies by type record
+    inline_response_200:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ArtworkStatus'
+        status:
+          type: string
+    inline_response_200_1:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ArtworkType'
+        status:
+          type: string
+    inline_response_200_2:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/ArtworkBaseRecord'
+        status:
+          type: string
+    inline_response_200_3:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/ArtworkExtendedRecord'
+        status:
+          type: string
+    inline_response_200_4:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/Translation'
+        status:
+          type: string
+    inline_response_200_5:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/AwardCategoryBaseRecord'
+        status:
+          type: string
+    inline_response_200_6:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/AwardCategoryExtendedRecord'
+        status:
+          type: string
+    inline_response_200_7:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/AwardBaseRecord'
+        status:
+          type: string
+    inline_response_200_8:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/AwardBaseRecord'
+        status:
+          type: string
+    inline_response_200_9:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/AwardExtendedRecord'
+        status:
+          type: string
+    inline_response_200_10:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/Character'
+        status:
+          type: string
+    inline_response_200_11:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Company'
+        status:
+          type: string
+    inline_response_200_12:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/CompanyType'
+        status:
+          type: string
+    inline_response_200_13:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/Company'
+        status:
+          type: string
+    inline_response_200_14:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ContentRating'
+        status:
+          type: string
+    inline_response_200_15:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Country'
+        status:
+          type: string
+    inline_response_200_16:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/EntityType'
+        status:
+          type: string
+    inline_response_200_17:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/EpisodeBaseRecord'
+        status:
+          type: string
+    inline_response_200_18:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/EpisodeExtendedRecord'
+        status:
+          type: string
+    inline_response_200_19:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Gender'
+        status:
+          type: string
+    inline_response_200_20:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/GenreBaseRecord'
+        status:
+          type: string
+    inline_response_200_21:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/GenreBaseRecord'
+        status:
+          type: string
+    inline_response_200_22:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Language'
+        status:
+          type: string
+    inline_response_200_23:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ListBaseRecord'
+        status:
+          type: string
+    inline_response_200_24:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/ListBaseRecord'
+        status:
+          type: string
+    inline_response_200_25:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/ListExtendedRecord'
+        status:
+          type: string
+    login_body:
+      required:
+      - apikey
+      type: object
+      properties:
+        apikey:
+          type: string
+        pin:
+          type: string
+    inline_response_200_26:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/inline_response_200_26_data'
+        status:
+          type: string
+    inline_response_200_27:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Status'
+        status:
+          type: string
+    inline_response_200_28:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/MovieBaseRecord'
+        status:
+          type: string
+    inline_response_200_29:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/MovieBaseRecord'
+        status:
+          type: string
+    inline_response_200_30:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/MovieExtendedRecord'
+        status:
+          type: string
+    inline_response_200_31:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/PeopleType'
+        status:
+          type: string
+    inline_response_200_32:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/PeopleBaseRecord'
+        status:
+          type: string
+    inline_response_200_33:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/PeopleExtendedRecord'
+        status:
+          type: string
+    inline_response_200_34:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/SearchResult'
+        status:
+          type: string
+    inline_response_200_35:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/SeasonBaseRecord'
+        status:
+          type: string
+    inline_response_200_36:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/SeasonBaseRecord'
+        status:
+          type: string
+    inline_response_200_37:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/SeasonExtendedRecord'
+        status:
+          type: string
+    inline_response_200_38:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/SeasonType'
+        status:
+          type: string
+    inline_response_200_39:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/SeriesBaseRecord'
+        status:
+          type: string
+    inline_response_200_40:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/SeriesBaseRecord'
+        status:
+          type: string
+    inline_response_200_41:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/SeriesExtendedRecord'
+        status:
+          type: string
+    inline_response_200_42:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/inline_response_200_42_data'
+        status:
+          type: string
+    inline_response_200_43:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/SourceType'
+        status:
+          type: string
+    inline_response_200_44:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/EntityUpdate'
+        status:
+          type: string
+    inline_response_200_26_data:
+      type: object
+      properties:
+        token:
+          type: string
+    inline_response_200_42_data:
+      type: object
+      properties:
+        series:
+          $ref: '#/components/schemas/SeriesExtendedRecord'
+        episodes:
+          type: array
+          items:
+            $ref: '#/components/schemas/EpisodeBaseRecord'
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
