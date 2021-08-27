@@ -1,3 +1,3 @@
 # swagger-api
 * TheTVDB
-  * [V4](thetvdb/v4)
+  * [V4](/thetvdb/v4)
